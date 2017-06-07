@@ -1,4 +1,5 @@
 var React = require('react');
+var ParticipantInfo = require('./ParticipantInfo.js');
 
 var participants = [
     ['Nick', 'Anna', 'Olga'],
@@ -6,11 +7,8 @@ var participants = [
     ['Olga', 'Anna', 'Yehor']
 ];
 
-var TravelDetails = React.createClass({
-    getInitialState: function() {
-        return {users: []}
-    },
-
+var TravelContainer = React.createClass({
+    
     displayAllParticipants: function(users) {
         return users.map(this.displayParticipant);
     },
@@ -32,4 +30,4 @@ var TravelDetails = React.createClass({
     }
 });
 
-module.exports = TravelDetails;
+module.exports = TravelContainer;
