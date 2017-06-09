@@ -1,8 +1,16 @@
+//const HOST = '10.10.55.46';
+
 module.exports = {
   entry: "./app/App.js",
   output: {
-    filename: "./bundle.js"
+    filename: "./build/bundle.js"
   },
+
+  devServer: {
+      inline: true,
+      port: 8080
+   },
+   
   module: {
     loaders: [
       {
@@ -10,7 +18,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015']
+          presets: ['react', 'es2015', "stage-1"]
         }
       }
     ]

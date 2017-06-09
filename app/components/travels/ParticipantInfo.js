@@ -1,15 +1,15 @@
-var React = require('react');
+import React, { Component } from 'react';
 
-var participants = [
-    ['Nick', 'Anna', 'Olga'],
-    ['Andrew', 'Galina', 'Nick','Anna'], 
-    ['Olga', 'Anna', 'Yehor']
-];
-
-var ParticipantInfo = React.createClass({
-    render: function() {
-        return <h3>Some data</h3>
+ class ParticipantInfo extends Component {
+    render() {
+        return <div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Food: {this.props.food}</h4>
+        <h3>{this.props.equip}</h3>
+        <h3>{this.props.money}</h3>
+        </div>
+         </div>
     }
-}) 
+}
 
-module.exports = ParticipantInfo;
+export default ParticipantInfo;

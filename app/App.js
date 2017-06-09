@@ -1,17 +1,18 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Router = require('react-router-dom').BrowserRouter;
-var routes = require('./config/routes');
-var Home = require('./components/Home.js')
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import  { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import routes from './routes/routes.js';
+import Home from './components/Home.js';
 
-var PageWithHeader = React.createClass({
-    render: function() {
+export default class PageWithHeader extends Component {
+    render() {
         return <div>
-        <Home />
-        <Router>{routes}</Router>
-        </div>
+                <Home />
+                <Router>{routes}</Router>
+              </div>
     }
-});
+}
+
 
 ReactDOM.render(
     <PageWithHeader />,
