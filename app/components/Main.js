@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import TravelList from './travels/TravelList'
 
-var events = ["2017-Georgia", "2016-Montenegro", "2016-Carpatians"];
+//var events = ["2017-Georgia", "2016-Montenegro", "2016-Carpatians"];
 
-class Main extends Component {
+/*class Main extends Component {
       
     createEvent(event, index) {
-			return (<Link to={'details/' + index} key = {index}> <button id = {'event_' + index} type = "button"
-            className = "btn btn-default btn-lg btn-block" >{event}</button></Link>
+			return (<Link to={'details/' + index} key = {index}> 
+			<button id = {'event_' + index} type = "button"
+            className = "btn btn-default btn-lg btn-block" >{event}
+			</button></Link>
             )
 				}	
 	
@@ -25,6 +28,22 @@ class Main extends Component {
 					</div>
             )
 		}
-	}
+	}*/
 
-	export default Main;
+
+
+const Main = ({travels, onTravelClick}) => (
+		<div className = "col-md-12">
+            <div className = "col-md-2"></div>
+            {travels.map(travel =>
+				<TravelList
+					key = {travel.id}
+					travel = {travel}
+					onClick = {() => onTravelClick}
+					/>
+				)}
+			<div className = "col-md-12"></div>
+		</div>
+	)
+
+export default Main;

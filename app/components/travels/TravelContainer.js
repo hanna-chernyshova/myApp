@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import ParticipantInfo from './ParticipantInfo.js';
+//import ParticipantInfo from './ParticipantInfo.js';
+import TravelDetails from './TravelDetails';
 
-const participants = [
+/*const participants = [
     [
         {name: 'Nick', food: 'some food', equip: 'some equip', money: 200},
         {name: 'Anna', food: 'some food', equip: 'some equip', money: 300}, 
@@ -9,14 +10,22 @@ const participants = [
     ],
     ['Andrew', 'Galina', 'Nick','Anna'], 
     ['Olga', 'Anna', 'Yehor']
-];
+];*/
 
-class TravelContainer extends Component {
-    /*constructor (props, context){
-        super (props, context);
-       this.displayParticipantInfo = this.displayParticipantInfo.bind(this);
-   }*/
+const TravelContainer = ({travels, onTravelClick}) => {
+    return <ul className ="nav nav-pills nav-justified">
+       {travels.map(travel =>
+       <TravelDetails key = {travel.id} 
+            travel = {travel} 
+            onClick={() => onTravelClick(travel.id)}
+            />
+       )}
+    </ul>
 
+}
+
+/*class TravelContainer extends Component {
+ 
     displayParticipantInfo(e) { 
         e.preventDefault() 
     }
@@ -40,6 +49,6 @@ class TravelContainer extends Component {
                     {this.displayAllParticipants(participants[i])}
               </ul>
     }
-}
+}*/
 
 export default TravelContainer;
