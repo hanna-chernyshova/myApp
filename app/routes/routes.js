@@ -8,7 +8,8 @@ export default (
     <div>
         <Switch>
             <Route path = "/details/:index" component = {TravelDetails} />
-            <Route path ="/" component = {Main} />
+            <Route path ="/" component = {Main } 
+            />
         </Switch>
     </div>
 );

@@ -2,13 +2,12 @@
 
 module.exports = {
   entry: "./app/App.js",
-  output: {
-    filename: "./build/bundle.js"
-  },
+  output: {filename: "./build/bundle.js"},
 
   devServer: {
       inline: true,
-      port: 8080
+      port: 8080,
+      historyApiFallback: true
    },
    
   module: {
@@ -17,9 +16,7 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015', "stage-1"]
-        }
+        query: {presets: ['react', 'es2015', "stage-1"]}
       }
     ]
   }

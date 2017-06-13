@@ -2,21 +2,14 @@ import { connect } from 'react-redux';
 import { showTravel } from '../src/Actions';
 import Main from '../Main';
 
-const mapStateToProps = (state) => {
-  return travels
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onTodoClick: (id) => {
-      dispatch(showTravel(id))
-    }
-  }
-}
-
-const TravelList = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Main)
+const TravelList = ({data, onTravelClick}) => (
+<ul className ="nav nav-pills nav-justified">
+       <TravelDetails key = {data.id} 
+            travel = {data} 
+            onClick={() => onTravelClick(data)}
+            />
+       )}
+    </ul>
+)
 
 export default TravelList

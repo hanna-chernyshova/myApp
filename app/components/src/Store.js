@@ -1,8 +1,11 @@
-let state = [
-    {id:0,
-    travel: {
+import React, { Component } from 'react';
+
+const travelApp = (state = [
+    {
+    id: 0,
+    data: {
         title: "2017-Georgia", 
-        participants: [ {name: 'Nick', food: 'some food', equip: 'some equip', money: 200},
+        participants: [{name: 'Nick', food: 'some food', equip: 'some equip', money: 200},
         {name: 'Anna', food: 'some food', equip: 'some equip', money: 300}, 
         {name: 'Olga', food: 'some food', equip: 'some equip', money: 400}]
     }
@@ -10,22 +13,27 @@ let state = [
 
 {
     id: 1,
-    travel: {
+    data: {
         title: "2016-Montenegro",
-        participants: ['Andrew', 'Galina', 'Nick','Anna']
+        participants: [{name: 'Andrew', food: 'some food', equip: 'some equip', money: 200},
+        {name: 'Galina', food: 'some food', equip: 'some equip', money: 300}, 
+        {name: 'Anna', food: 'some food', equip: 'some equip', money: 300}, 
+        {name: 'Nick', food: 'some food', equip: 'some equip', money: 400}]
     }
 }, 
 
 {
-    id:2,
-    travel: {
+    id: 2,
+    data: {
         title: "2016-Carpatians",
-        participants: ['Olga', 'Anna', 'Yehor']
+        participants: [{name: 'Olga', food: 'some food', equip: 'some equip', money: 200},
+        {name: 'Yehor', food: 'some food', equip: 'some equip', money: 300}, 
+        {name: 'Anna', food: 'some food', equip: 'some equip', money: 300}]
     }
 }
-];
-
-const travelsReducer = (state, action) => {
+], 
+action) => {
+  
   switch (action.type) {
     case 'ADD_NEW':
       return [
@@ -37,16 +45,15 @@ const travelsReducer = (state, action) => {
       ]
 
     case 'SHOW_TRAVEL':
-      return state.map(travel => {
-        if (travel.id === action.id) {
-          return travel
-        }
-      }
-      )
-
+      return state
+      /*<ul>
+        {state.map((travel,i) =>  <li key = {i}>{travel.data}</li>
+           )}
+        </ul>*/
+      
     default:
       return state
-  }
+}
 }
 
-export default travelsReducer
+export default travelApp

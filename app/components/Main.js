@@ -1,49 +1,55 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-import TravelList from './travels/TravelList'
+import  { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import TravelDetails from './TravelDetails';
 
-//var events = ["2017-Georgia", "2016-Montenegro", "2016-Carpatians"];
+class Main extends Component {
 
-/*class Main extends Component {
-      
-    createEvent(event, index) {
-			return (<Link to={'details/' + index} key = {index}> 
-			<button id = {'event_' + index} type = "button"
-            className = "btn btn-default btn-lg btn-block" >{event}
-			</button></Link>
-            )
-				}	
-	
-	createListOfEvents(events) {
-			return events.map(this.createEvent);
-		}
+	constructor() {
+		 super();
+		this.state = {showComponent: false};
+		 //this.handleClick = this.handleClick.bind(this);
+	}
 
-	render() {
-		return (<div className = "col-md-12">
-                    <div className = "col-md-2"></div>
-                        <div className = "col-md-8">
-                            {this.createListOfEvents(events)}
-                        </div>
-						<div className = "col-md-12"></div>
+	handleClick = (e) => {
+		e.preventDefault() 
+		//this.props.onTravelItemClick
+		this.setState({
+      		showComponent:  true
+    	});
+	}
+
+    createEvent = (travel, index) => {
+		//console.log(travel);
+		//console.log(index);
+		//console.log(this.props.onTravelItemClick);
+			return ( <div key = {index}>
+				<button id = {'travel_' + index} type = "button" onClick = {this.handleClick}
+            		className = "btn btn-lg btn-block" >{travel.data.title}
+				</button>
+				<div><p>  </p></div>
+					{this.state.showComponent ? <TravelDetails participants = {travel.data.participants} /> : null }
 					</div>
-            )
-		}
-	}*/
+			)
+			}	
+	
+	createListOfEvents = (travels) => {
+			return travels.map(this.createEvent)
+    }
 
+    render () {
+      const {travels} = this.props;  
+			//console.log(travels);
+			//console.log(onTravelItemClick);
+        return (
+            <div className = "col-md-12">
+            		<div className = "col-md-2"></div>
+            		    <div className = "col-md-8" >
+							{this.createListOfEvents(travels)}
+						</div>
+                    <div className = "col-md-2"></div>
+			</div>
+        )
+    }
+}
 
-
-const Main = ({travels, onTravelClick}) => (
-		<div className = "col-md-12">
-            <div className = "col-md-2"></div>
-            {travels.map(travel =>
-				<TravelList
-					key = {travel.id}
-					travel = {travel}
-					onClick = {() => onTravelClick}
-					/>
-				)}
-			<div className = "col-md-12"></div>
-		</div>
-	)
-
-export default Main;
+export default Main

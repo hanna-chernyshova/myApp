@@ -12,17 +12,14 @@ import TravelDetails from './TravelDetails';
     ['Olga', 'Anna', 'Yehor']
 ];*/
 
-const TravelContainer = ({travels, onTravelClick}) => {
-    return <ul className ="nav nav-pills nav-justified">
-       {travels.map(travel =>
+const TravelContainer = ({travels, onTravelClick}) => <ul className ="nav nav-pills nav-justified">
+       {travels.map((travel) =>
        <TravelDetails key = {travel.id} 
             travel = {travel} 
             onClick={() => onTravelClick(travel.id)}
             />
        )}
     </ul>
-
-}
 
 /*class TravelContainer extends Component {
  
