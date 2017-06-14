@@ -2,34 +2,25 @@ import React, { Component } from 'react';
 
 const travelApp = (state = [
     {
-    id: 0,
-    data: {
-        title: "2017-Georgia", 
-        participants: [{name: 'Nick', food: 'some food', equip: 'some equip', money: 200},
-        {name: 'Anna', food: 'some food', equip: 'some equip', money: 300}, 
-        {name: 'Olga', food: 'some food', equip: 'some equip', money: 400}]
-    }
+   title: "2017-Georgia", 
+        participants: [{name: 'Nick', food: ['some food', 'other food', 'one more food'], equip: ['1', '2', '3'], money: [200,300,100]},
+        {name: 'Anna', food: ['some food', 'other food', 'one more food'], equip: ['1', '2', '3'], money: [300,10]}, 
+        {name: 'Olga', food: ['some food', 'other food', 'one more food'], equip: ['1', '2', '3'], money: [400,25]}]
 },
 
 {
-    id: 1,
-    data: {
         title: "2016-Montenegro",
-        participants: [{name: 'Andrew', food: 'some food', equip: 'some equip', money: 200},
-        {name: 'Galina', food: 'some food', equip: 'some equip', money: 300}, 
-        {name: 'Anna', food: 'some food', equip: 'some equip', money: 300}, 
-        {name: 'Nick', food: 'some food', equip: 'some equip', money: 400}]
-    }
+        participants: [{name: 'Andrew', food: ['some food', 'other food', 'one more food'], equip: ['1', '2', '3'], money: [200,3]},
+        {name: 'Galina', food: ['some food', 'other food', 'one more food'], equip: ['1', '2', '3'], money: [200,100]}, 
+        {name: 'Anna', food: ['some food', 'other food', 'one more food'], equip: ['1', '2', '3'], money: [200,300]}, 
+        {name: 'Nick', food: ['some food', 'other food', 'one more food'], equip: ['1', '2', '3'], money: [300,100]}]
 }, 
 
-{
-    id: 2,
-    data: {
+{ 
         title: "2016-Carpatians",
-        participants: [{name: 'Olga', food: 'some food', equip: 'some equip', money: 200},
-        {name: 'Yehor', food: 'some food', equip: 'some equip', money: 300}, 
-        {name: 'Anna', food: 'some food', equip: 'some equip', money: 300}]
-    }
+        participants: [{name: 'Olga', food: ['some food', 'other food', 'one more food'], equip: ['1', '2', '3'], money: [55,80,100]},
+        {name: 'Yehor', food: ['some food', 'other food', 'one more food'], equip: ['1', '2', '3'], money: [200,250,75]}, 
+        {name: 'Anna', food: ['some food', 'other food', 'one more food'], equip: ['1', '2', '3'], money: [120,45,15]}]
 }
 ], 
 action) => {

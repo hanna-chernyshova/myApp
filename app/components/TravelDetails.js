@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
 import ParticipantInfo from './travels/ParticipantInfo'
-//import TravelContainer from './travels/TravelContainer.js';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => ({travels: state});
 
  class TravelDetails extends Component {
      displayAllParticipants(participants) {
-         //console.log(participants)
         return participants.map(this.displayParticipant);
      }
 
       displayParticipant(participant, i) {
-          //console.log(participant)
-        return ( <li className ="nav-item" key = {'event_' + i} onClick = { (e) => e.preventDefault() }>
-            <a className ="nav-link active" href="#">{participant.name}</a>
-            <ParticipantInfo food = {participant.food} equip = {participant.equip} money = {participant.money} />
+        return ( <li className ="nav-item" key = {'event_' + i}>
+             <div className = "panel panel-default" style={{margin: 5 + 'px'}}>
+                <div className = "panel-heading">
+                    <h3 className = "panel-title">{participant.name}</h3>
+                </div>
+                <ParticipantInfo food = {participant.food} equip = {participant.equip} money = {participant.money} />
+            </div>
             </li>
-                
-            )
+        )
     }
 
      render() {
-         //console.log(this.props)
-               return <div>
-                   <ul className ="nav nav-pills nav-justified">
-                   {this.displayAllParticipants(this.props.participants)}
-                   </ul>
-                   </div>
+        return <div>
+            <ul className ="nav nav-pills nav-justified">
+                {this.displayAllParticipants(this.props.travels[this.props.match.params.id].participants)}
+            </ul>
+        </div>
     }
-
-   
 }
 
-export default TravelDetails
+export default connect(mapStateToProps)(TravelDetails)
